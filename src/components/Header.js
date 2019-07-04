@@ -1,17 +1,31 @@
-import React    from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core'
+import { Home as HomeIcon, Work as WorkIcon } from '@material-ui/icons'
 
-export function Header () {
+export function Header() {
+  const [value, setValue] = React.useState(0)
+
   return (
-    <ul>
-      <li>
-        <Link to="/">
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link to='/create'>Create</Link>
-      </li>
-    </ul>
+    <BottomNavigation
+      value={value}
+      onChange={(event, newValue) => {
+        setValue(newValue)
+      }}
+      showLabels
+    >
+      <BottomNavigationAction
+        label="Home"
+        icon={<HomeIcon />}
+        component={Link}
+        to="/"
+      />
+      <BottomNavigationAction
+        label="Create"
+        icon={<WorkIcon />}
+        component={Link}
+        to="/create"
+      />
+    </BottomNavigation>
   )
 }

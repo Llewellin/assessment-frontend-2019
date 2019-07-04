@@ -1,0 +1,19 @@
+.Create {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Create-Submit {
+    margin-top: 12px;
+}
+
+.Create-Input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Create-Error {
+    color: red;
+}

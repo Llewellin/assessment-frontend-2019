@@ -1,13 +1,35 @@
-import React, { Component } from 'react'
+import React, { Fragment } from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import { TableRow, TableCell } from '@material-ui/core'
 
-export class Incident extends Component {
-  render () {
-    return (
-      <div style={{border: '1px solid black'}}>
-        <p>{ this.props.title }</p>
-        <p>Assignee: { this.props.assignee }</p>
-        <p>Status: { this.props.status }</p>
-      </div>
-    )
+const StyledTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white
+  },
+  body: {
+    fontSize: 14
   }
+}))(TableCell)
+
+const StyledTableRow = withStyles(theme => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default
+    }
+  }
+}))(TableRow)
+
+export function Incident({ title, assignee, status }) {
+  return (
+    <Fragment>
+      <StyledTableRow key={title}>
+        <StyledTableCell component="th" scope="row">
+          {title}
+        </StyledTableCell>
+        <StyledTableCell align="right">{assignee}</StyledTableCell>
+        <StyledTableCell align="right">{status}</StyledTableCell>
+      </StyledTableRow>
+    </Fragment>
+  )
 }

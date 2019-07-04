@@ -1,20 +1,28 @@
-import React                              from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { CreateIncident }                 from './pages/CreateIncident'
-import { Home }                           from './pages/Home'
-import { Header }                         from './components/Header'
+import { CssBaseline, Container } from '@material-ui/core'
 
-function App () {
+import CreateIncident from './pages/CreateIncident/CreateIncident.jsx'
+import Home from './pages/Home'
+import { Header } from './components/Header'
+import './styles/App.css'
+
+function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header/>
-        <div>
-          <Route exact path="/" component={ Home }/>
-          <Route path="/create" component={ CreateIncident }/>
-        </div>
-      </div>
-    </Router>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Router>
+          <div className="App">
+            <Header />
+            <div className="IncidentList">
+              <Route exact path="/" component={Home} />
+              <Route path="/create" component={CreateIncident} />
+            </div>
+          </div>
+        </Router>
+      </Container>
+    </React.Fragment>
   )
 }
 
