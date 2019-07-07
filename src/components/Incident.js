@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { string } from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { TableRow, TableCell } from '@material-ui/core'
 
@@ -20,7 +21,7 @@ const StyledTableRow = withStyles(theme => ({
   }
 }))(TableRow)
 
-export function Incident({ title, assignee, status }) {
+function Incident({ title, assignee, status }) {
   return (
     <Fragment>
       <StyledTableRow key={title}>
@@ -33,3 +34,11 @@ export function Incident({ title, assignee, status }) {
     </Fragment>
   )
 }
+
+Incident.propTypes = {
+  title: string.isRequired,
+  assignee: string.isRequired,
+  status: string.isRequired
+}
+
+export { Incident }

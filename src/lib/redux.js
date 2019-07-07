@@ -1,7 +1,3 @@
-///////////////////////////////
-// Mini Redux implementation //
-///////////////////////////////
-
 const validateAction = action => {
   if (!action || typeof action !== 'object' || Array.isArray(action)) {
     throw new Error('Action must be an object!')

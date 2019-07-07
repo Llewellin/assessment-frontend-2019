@@ -1,4 +1,5 @@
 import React from 'react'
+import { func } from 'prop-types'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { TextField, Button } from '@material-ui/core'
@@ -81,8 +82,11 @@ const CreateIncident = ({ doCreateIncident }) => {
   )
 }
 
-const mapStateToProps = state => ({})
+CreateIncident.propTypes = {
+  doCreateIncident: func.isRequired
+}
 
+const mapStateToProps = state => ({})
 const mapDispatchToProps = dispatch => ({
   doCreateIncident: (title, assignee, status) =>
     dispatch(createIncident(title, assignee, status))

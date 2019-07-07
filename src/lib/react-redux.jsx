@@ -1,9 +1,5 @@
 import React from 'react'
-import { shape, string, func, array, bool, object } from 'prop-types'
-// import { store } from '../index.js'
-
-import { createStore } from './redux'
-import { reducer } from '../pages/CreateIncident/ducks'
+import { object } from 'prop-types'
 
 export class Provider extends React.Component {
   getChildContext() {
@@ -27,7 +23,6 @@ export const connect = (
   class Connected extends React.Component {
     onStoreOrPropsChange(props) {
       const { store } = this.context
-      console.log('store = ', store)
       const state = store.getState()
       const stateProps = mapStateToProps(state, props)
       const dispatchProps = mapDispatchToProps(store.dispatch, props)

@@ -58,6 +58,7 @@ const Home = ({ incidents }) => {
         <TableBody>
           {Object.keys(incidents).map(key => (
             <Incident
+              key={`${key}-${incidents[key].title}`}
               title={incidents[key].title}
               assignee={incidents[key].assignee}
               status={incidents[key].status}
@@ -72,7 +73,6 @@ const Home = ({ incidents }) => {
 const mapStateToProps = state => ({
   incidents: state.incidents
 })
-
 const mapDispatchToProps = () => ({})
 
 export default connect(
